@@ -6,7 +6,6 @@ use std::{collections::BTreeMap, fs, path::Path};
 
 use crate::serialize::EvmKeyExport;
 
-#[allow(dead_code)]
 mod serialize;
 
 fn main() -> std::io::Result<()> {
@@ -20,6 +19,7 @@ fn main() -> std::io::Result<()> {
     // Uncompressed public key (0x04 || X || Y)
     let public_key = verify_key.to_encoded_point(false);
     let pubkey_bytes = public_key.as_bytes();
+    let public_key_hex = format!("0x{}", encode(pubkey_bytes));
 
     // Ethereum address
     let hash = Keccak256::digest(&pubkey_bytes[1..]);
@@ -27,7 +27,7 @@ fn main() -> std::io::Result<()> {
 
     // Export to JSON BTreeMap
     let path = "accounts.json";
-    let export = serialize::EvmKeyExport::new(private_key_hex, address_hex);
+    let export = serialize::EvmKeyExport::new(private_key_hex, public_key_hex, address_hex);
 
     let mut accounts: BTreeMap<String, EvmKeyExport> = if Path::new(path).exists() {
         let data = fs::read_to_string(path)?;

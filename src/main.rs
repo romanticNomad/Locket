@@ -3,6 +3,9 @@ use rand::rngs::OsRng;
 use sha3::{Digest, Keccak256};
 use hex::encode;
 
+#[allow(dead_code)]
+mod serialize;
+
 fn main() {
     // 1. Generate private key
     let signing_key = SigningKey::random(&mut OsRng);

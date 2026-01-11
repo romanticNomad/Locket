@@ -66,11 +66,11 @@ Example output:
 
 Each generated account includes:
 
-| Field                     | Description                                           |   |   |   |     |
-| ------------------------- | ----------------------------------------------------- | - | - | - | --- |
-| `pvt_key`                 | 32-byte EVM pvt key, hex-encoded with `0x` prefix |   |   |   |   |       
-| `pub_key`                 | Uncompressed secp256k1 public key                     |   |   |   |   
-| `address`                 | Ethereum address derived from the public key          |   |   |   |     |
+| Field                     | Description                                           |
+| ------------------------- | ----------------------------------------------------- |
+| `pvt_key`                 | 32-byte EVM pvt key, hex-encoded with `0x` prefix |   | 
+| `pub_key`                 | Uncompressed secp256k1 public key                     |   
+| `address`                 | Ethereum address derived from the public key          | 
 
 All values are encoded in **hexadecimal** and are **language-agnostic**.
 

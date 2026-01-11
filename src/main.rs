@@ -2,7 +2,7 @@ use k256::ecdsa::SigningKey;
 use rand::rngs::OsRng;
 use sha3::{Digest, Keccak256};
 use hex::encode;
-use std::{fs, path::Path};
+use std::{collections::BTreeMap, fs, path::Path};
 
 use crate::serialize::EvmKeyExport;
 
@@ -25,20 +25,23 @@ fn main() -> std::io::Result<()> {
     let hash = Keccak256::digest(&pubkey_bytes[1..]);
     let address_hex = format!("0x{}", encode(&hash[12..]));
 
-    // Export to JSON
+    // Export to JSON BTreeMap
     let path = "accounts.json";
     let export = serialize::EvmKeyExport::new(private_key_hex, address_hex);
 
-    let mut entries: Vec<EvmKeyExport> = if Path::new(path).exists() {
+    let mut accounts: BTreeMap<String, EvmKeyExport> = if Path::new(path).exists() {
         let data = fs::read_to_string(path)?;
         serde_json::from_str(&data).unwrap_or_default()
     } else {
-        Vec::new()
+        BTreeMap::new()
     };
-    entries.push(export);
 
-    let contents = serde_json::to_string_pretty(&entries)?;
-    fs::write(path,contents)?;
+    let index = accounts.len() + 1;
+    let entry = format!("account{}", index);
+    accounts.insert(entry.clone(), export);
+
+    let contents = serde_json::to_string_pretty(&accounts)?;
+    fs::write(path, contents)?;
 
     println!("evm account details written to {}", path);
 

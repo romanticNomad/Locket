@@ -1,13 +1,13 @@
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct EvmKeyExport {
-    private_key: String,
+    pvt_key: String,
     address: String,
 }
 
 impl EvmKeyExport {
     pub fn new(pvtkey: String, pubkey: String) -> EvmKeyExport {
-        EvmKeyExport { private_key: pvtkey, address: pubkey }
+        EvmKeyExport { pvt_key: pvtkey, address: pubkey }
     }
 }

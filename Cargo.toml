@@ -1,0 +1,10 @@
+[package]
+name = "locket"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+k256 = "0.13"
+rand = "0.8"
+sha3 = "0.10"
+hex = "0.4"

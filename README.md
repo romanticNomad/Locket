@@ -8,7 +8,7 @@ Locket generates Ethereum-compatible accounts (private keys, public keys, and ad
 
 ##  **CRITICAL SECURITY WARNING** 
 
-> **TESTING ONLY — DO NOT USE WITH REAL FUNDS**
+> **Locket Keys are from TESTING ONLY — DO NOT USE WITH REAL FUNDS**
 >
 > This tool writes **unencrypted private keys directly to disk** (`accounts.json`).
 >
@@ -20,7 +20,7 @@ Locket generates Ethereum-compatible accounts (private keys, public keys, and ad
 >
 > **Intended for LOCAL TESTING ONLY.**
 >
-> If you choose to use these keys with real funds, you do so **entirely at your own risk**. We **strongly recommend against it**.
+> If the user choose to use these keys with real funds, the user does so **entirely at the userr own risk**. We **strongly recommend against it**.
 
 ---
 
@@ -33,7 +33,7 @@ Locket generates valid Ethereum accounts by:
 3. Computing the Ethereum address from the public key hash
 4. Saving all key material to `accounts.json` in a structured format
 
-Each time you run Locket, it **appends** a new account to the file without overwriting existing ones.
+Each time the user runs Locket, it **appends** a new account to the file without overwriting existing ones.
 
 ---
 
@@ -47,7 +47,7 @@ Each time you run Locket, it **appends** a new account to the file without overw
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/locket.git
+git clone https://github.com/romanticNomad/Locket.git
 cd locket
 ```
 
@@ -72,9 +72,9 @@ cargo run
 
 ### Example Output
 
-After running `cargo run`, you'll see:
+After running `cargo run`, the user'll see:
 
-```
+```bash
 evm account details written to accounts.json
 ```
 
@@ -191,24 +191,9 @@ MIT License — see [LICENSE](LICENSE) for details.
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ---
-
-## Disclaimer
-
-**This software is provided "as is" without warranty of any kind.**
-
-The developers assume **no responsibility** for:
-- Loss of funds
-- Security breaches
-- Misuse of generated keys
-- Any damages arising from the use of this tool
-
-**Use at your own risk. Only use for testing and development purposes.**
-
----
-
 ## Need Help?
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/locket/issues)
+- **Issues**: [GitHub Issues](https://github.com/romanticNomad/Locket/issues)
 - **Questions**: Open a discussion in the repository
 
 > **Happy Testing**

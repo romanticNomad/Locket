@@ -1,12 +1,11 @@
+mod serialize;
+
+use crate::serialize::EvmKeyExport;
+use hex::encode;
 use k256::ecdsa::SigningKey;
 use rand::rngs::OsRng;
 use sha3::{Digest, Keccak256};
-use hex::encode;
 use std::{collections::BTreeMap, fs, path::Path};
-
-use crate::serialize::EvmKeyExport;
-
-mod serialize;
 
 fn main() -> std::io::Result<()> {
     // private key

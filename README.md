@@ -33,7 +33,8 @@ Locket generates valid Ethereum accounts by:
 3. Computing the Ethereum address from the public key hash
 4. Saving all key material to `accounts.json` in a structured format
 
-Each time the user runs Locket, it **appends** a new account to the file without overwriting existing ones.
+The user can mention the number of account `N`, they want to generate as a variable to the cargo run command. 
+Locket will generate the JSON formated `N` evm accounts to `accounts.json` file.
 
 ---
 
@@ -48,7 +49,7 @@ Each time the user runs Locket, it **appends** a new account to the file without
 
 ```bash
 git clone https://github.com/romanticNomad/Locket.git
-cd locket
+cd Locket
 ```
 
 ---
@@ -57,11 +58,12 @@ cd locket
 
 ### Generate a New Account
 
-Simply run:
+Simply run (N must be a non-zero natural number):
 
 ```bash
-cargo run
+cargo run -- accounts <N>
 ```
+In case no variable `N` is provided, Locket will default to `N=1`. 
 
 **What happens:**
 
@@ -75,7 +77,7 @@ cargo run
 After running `cargo run`, the user'll see:
 
 ```bash
-evm account details written to accounts.json
+Generated 5 account(s) in accounts.json
 ```
 
 The `accounts.json` file will look like this:
@@ -94,18 +96,6 @@ The `accounts.json` file will look like this:
   }
 }
 ```
-
-### Generate Multiple Accounts
-
-Run the command multiple times to create additional accounts:
-
-```bash
-cargo run
-cargo run
-cargo run
-```
-
-Each execution adds one more account to `accounts.json`.
 
 ---
 

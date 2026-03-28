@@ -20,7 +20,7 @@ Locket generates Ethereum-compatible accounts (private keys, public keys, and ad
 >
 > **Intended for LOCAL TESTING ONLY.**
 >
-> If the user choose to use these keys with real funds, the user does so **entirely at the userr own risk**. We **strongly recommend against it**.
+> If the user chooses to use these keys with real funds, the user does so **entirely at the user's own risk**. We **strongly recommend against it**.
 
 ---
 
@@ -34,7 +34,7 @@ Locket generates valid Ethereum accounts by:
 4. Saving all key material to `accounts.json` in a structured format
 
 The user can mention the number of account `N`, they want to generate as a variable to the cargo run command. 
-Locket will generate the JSON formated `N` evm accounts to `accounts.json` file.
+Locket will generate the JSON-formatted `N` evm accounts to the `accounts.json` file.
 
 ---
 
@@ -61,7 +61,7 @@ cd Locket
 Simply run (N must be a non-zero natural number):
 
 ```bash
-cargo run -- accounts <N>
+cargo run -- accounts N
 ```
 In case no variable `N` is provided, Locket will default to `N=1`. 
 
@@ -74,10 +74,10 @@ In case no variable `N` is provided, Locket will default to `N=1`.
 
 ### Example Output
 
-After running `cargo run`, the user'll see:
+After running (say) `cargo run -- accounts 2`, the user will see:
 
 ```bash
-Generated 5 account(s) in accounts.json
+Generated 2 account(s) in accounts.json
 ```
 
 The `accounts.json` file will look like this:
@@ -107,7 +107,7 @@ Each generated account contains:
 | ---------- | ---------------------------------------------- | -------------------------------------------------------------------- |
 | `pvt_key`  | 32-byte private key (hex with `0x` prefix)     | `0x1a2b3c...`                                                        |
 | `pub_key`  | Uncompressed secp256k1 public key (65 bytes)   | `0x04a1b2c3...`                                                      |
-| `address`  | Ethereum address (20 bytes)                    | `0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0`                         |
+| `address`  | Ethereum address (20 bytes)                    | `0x742d35Cc...`                         |
 
 All values are **hex-encoded** and compatible with standard Ethereum tooling (web3.js, ethers.js, Hardhat, Foundry, etc.).
 
